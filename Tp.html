@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tencent HSI Candlestick Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        #chartContainer {
+            width: 100%;
+            height: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .info {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 3px solid #007bff;
+        }
+        
+        .info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 15px;
+            border-radius: 3px;
+        }
+        
+        .up { background-color: #00da3c; }
+        .down { background-color: #ec0000; }
+        .volume { background-color: #7fbe9e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Tencent HSI Analysis</h1>
+            <p>Biểu đồ nến & Volume - Chỉ số Hang Seng tháng 8</p>
+        </div>
+        
+        <div id="chartContainer"></div>
+        
+        <div class="info">
+            <h3>🔍 Hướng dẫn sử dụng:</h3>
+            <ul>
+                <li><strong>Zoom:</strong> Cuộn chuột để zoom in/out</li>
+                <li><strong>Pan:</strong> Kéo để di chuyển biểu đồ</li>
+                <li><strong>Slider:</strong> Sử dụng thanh trượt ở dưới để điều hướng</li>
+                <li><strong>Tooltip:</strong> Di chuột qua biểu đồ để xem chi tiết</li>
+            </ul>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color up"></div>
+                    <span>Nến Tăng (Xanh)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color down"></div>
+                    <span>Nến Giảm (Đỏ)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color volume"></div>
+                    <span>Volume (Khối lượng)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 📊 Khởi tạo ECharts
+        const chartDom = document.getElementById('chartContainer');
+        const myChart = echarts.init(chartDom);
+
+        // 📈 Cấu hình biểu đồ
+        const option = {
+            // 📈 Tiêu đề biểu đồ
+            title: {
+                text: '腾讯8月恒生指数',
+                left: 'center',
+                textStyle: {
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                }
+            },
+
+            // 💡 Cấu hình tooltip khi hover
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'cross' },
+                backgroundColor: 'rgba(0,0,0,0.8)',
+                textStyle: { color: '#fff' }
+            },
+
+            // 🔗 Liên kết con trỏ giữa các trục
+            axisPointer: {
+                link: [{ xAxisIndex: 'all' }]
+            },
+
+            // 📊 Layout lưới: Biểu đồ nến (60%) + Volume (15%)
+            grid: [
+                { left: '10%', right: '10%', height: '60%' },
+                { left: '10%', right: '10%', top: '75%', height: '15%' }
+            ],
+
+            // 📅 Trục X - Thời gian
+            xAxis: [
+                {
+                    type: 'category',
+                    data: [
+                        '08-01', '08-04', '08-05', '08-06', '08-07', '08-08', 
+                        '08-11', '08-12', '08-13', '08-14', '08-15', '08-18', 
+                        '08-19', '08-20', '08-21', '08-22', '08-25', '08-26', 
+                        '08-27', '08-28', '08-29'
+                    ],
+                    scale: true,
+                    boundaryGap: false,
+                    axisLine: { onZero: false },
+                    splitLine: { show: false },
+                    min: 'dataMin',
+                    max: 'dataMax'
+                },
+                {
+                    type: 'category',
+                    gridIndex: 1,
+                    data: [
+                        '08-01', '08-04', '08-05', '08-06', '08-07', '08-08', 
+                        '08-11', '08-12', '08-13', '08-14', '08-15', '08-18', 
+                        '08-19', '08-20', '08-21', '08-22', '08-25', '08-26', 
+                        '08-27', '08-28', '08-29'
+                    ],
+                    axisTick: { show: false },
+                    axisLabel: { show: false }
+                }
+            ],
+
+            // 📏 Trục Y - Giá trị
+            yAxis: [
+                {
+                    scale: true,
+                    splitArea: { show: true }
+                },
+                {
+                    gridIndex: 1,
+                    splitNumber: 2,
+                    axisLine: { show: false },
+                    axisTick: { show: false },
+                    axisLabel: { show: false }
+                }
+            ],
+
+            // 🔍 Tính năng zoom và cuộn
+            dataZoom: [
+                { 
+                    type: 'inside', 
+                    xAxisIndex: [0, 1], 
+                    start: 50, 
+                    end: 100 
+                },
+                { 
+                    show: true, 
+                    type: 'slider', 
+                    xAxisIndex: [0, 1], 
+                    top: '93%', 
+                    start: 50, 
+                    end: 100 
+                }
+            ],
+
+            // 📊 Dữ liệu biểu đồ
+            series: [
+                {
+                    name: 'Price',
+                    type: 'candlestick',
+                    data: [
+                        [66.88, 68.00, 66.82, 68.00],   [70.42, 67.75, 67.75, 70.75],
+                        [71.45, 70.04, 69.27, 71.75],   [73.00, 72.00, 72.00, 73.66],
+                        [72.40, 72.60, 71.72, 72.60],   [71.50, 71.50, 71.50, 71.50],
+                        [71.05, 71.60, 70.80, 72.44],   [71.16, 72.54, 71.15, 72.54], 
+                        [76.69, 75.00, 74.50, 77.10],   [74.36, 75.41, 74.36, 75.41],
+                        [74.51, 76.49, 74.51, 76.49],   [75.30, 75.00, 74.57, 75.38],
+                        [75.80, 75.51, 75.51, 76.28],   [75.48, 75.70, 75.03, 75.70],
+                        [76.20, 76.17, 75.91, 76.51],   [78.00, 77.00, 77.00, 78.00],
+                        [77.96, 78.48, 76.60, 79.20],   [78.38, 78.02, 76.60, 78.98],
+                        [78.52, 78.52, 78.52, 78.52],   [77.11, 78.36, 77.11, 78.45],
+                        [77.66, 77.66, 77.66, 77.66]
+                    ],
+                    itemStyle: {
+                        color: '#ec0000',
+                        color0: '#00da3c',
+                        borderColor: '#8A0000',
+                        borderColor0: '#008F28'
+                    }
+                },
+                {
+                    name: 'Volume',
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    data: [
+                        120000, 180000, 150000, 200000, 160000,
+                        80000,  130000, 170000, 220000, 100000,
+                        90000,  140000, 175000, 160000, 200000,
+                        250000, 220000, 180000, 150000, 170000,
+                        120000
+                    ],
+                    itemStyle: {
+                        color: '#7fbe9e'
+                    }
+                }
+            ]
+        };
+
+        // 🎨 Áp dụng cấu hình và hiển thị biểu đồ
+        myChart.setOption(option);
+
+        // 📱 Responsive - Tự động resize khi thay đổi kích thước màn hình
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+
+        // 🎉 Thông báo load thành công
+        console.log('🎉 ECharts đã được khởi tạo thành công!');
+    </script>
+</body>
+</html>
