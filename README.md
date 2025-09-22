@@ -11,7 +11,6 @@
 
 [Demo Trực Tiếp](#-demo-trực-tiếp) • [Tính Năng](#-tính-năng-chính) • [Cài Đặt](#-cài-đặt) • [Hướng Dẫn](#-hướng-dẫn-sử-dụng)
 
-![Chart Preview](https://via.placeholder.com/800x400/667eea/white?text=Tencent+HSI+Chart+Preview)
 
 </div>
 
@@ -266,33 +265,14 @@ git clone https://github.com/yourusername/tencent-hsi-chart.git
 - ✅ Mobile-first CSS
 - ✅ Comment code in Vietnamese
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 👨‍💻 Author
 
 <div align="center">
 
 **TKayyy**
 
-[![GitHub]([https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername](https://github.com/TKayyyy))
-
 
 </div>
 
 ---
 
-<div align="center">
-
-### ⭐ Star this repo if you found it helpful!
-
-![Star](https://img.shields.io/github/stars/yourusername/tencent-hsi-chart?style=social)
-![Fork](https://img.shields.io/github/forks/yourusername/tencent-hsi-chart?style=social)
-![Issues](https://img.shields.io/github/issues/yourusername/tencent-hsi-chart)
-
-</div>
