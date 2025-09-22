@@ -1,26 +1,108 @@
-Tencent HSI Candlestick Chart
-Một ứng dụng web hiện đại hiển thị biểu đồ nến (candlestick) tương tác cho chỉ số Hang Seng của Tencent trong tháng 8, được xây dựng với ECharts và thiết kế responsive.
-🌟 Tính năng chính
-Biểu đồ nến tương tác: Hiển thị dữ liệu OHLC (Open, High, Low, Close) với màu sắc trực quan
-Biểu đồ volume: Khối lượng giao dịch được hiển thị dưới biểu đồ chính
-Zoom và Pan: Phóng to/thu nhỏ và di chuyển biểu đồ một cách mượt mà
-Tooltip chi tiết: Hiển thị thông tin đầy đủ khi hover
-Responsive Design: Tự động điều chỉnh theo kích thước màn hình
-Giao diện hiện đại: Gradient background và shadow effects
-🚀 Demo trực tiếp
-Mở file Tp.html trong trình duyệt để xem demo.
-📁 Cấu trúc dự án
-├── Tp.html          # File chính chứa toàn bộ ứng dụng
-└── README.md        # Tài liệu hướng dẫn
+# 📈 Tencent HSI Candlestick Chart
 
-🛠️ Công nghệ sử dụng
-HTML5: Cấu trúc semantic và responsive
-CSS3: Styling hiện đại với flexbox và gradient
-JavaScript (ES6+): Logic xử lý biểu đồ
-ECharts 5.4.3: Thư viện biểu đồ mạnh mẽ từ Apache
-📋 Phân tích chi tiết code
-1. HTML Structure
+<div align="center">
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![ECharts](https://img.shields.io/badge/ECharts-5.4.3-red.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)
+
+**Một ứng dụng web hiện đại hiển thị biểu đồ nến tương tác cho chỉ số Hang Seng của Tencent**
+
+[Demo Trực Tiếp](#-demo-trực-tiếp) • [Tính Năng](#-tính-năng-chính) • [Cài Đặt](#-cài-đặt) • [Hướng Dẫn](#-hướng-dẫn-sử-dụng)
+
+![Chart Preview](https://via.placeholder.com/800x400/667eea/white?text=Tencent+HSI+Chart+Preview)
+
+</div>
+
+---
+
+## 🌟 Tính năng chính
+
+<table>
+<tr>
+<td width="50%">
+
+### 📊 **Biểu đồ chuyên nghiệp**
+- ✅ Biểu đồ nến OHLC tương tác
+- ✅ Volume chart tích hợp
+- ✅ Zoom và Pan mượt mà
+- ✅ Tooltip chi tiết
+
+</td>
+<td width="50%">
+
+### 🎨 **Giao diện hiện đại**
+- ✅ Responsive design
+- ✅ Gradient background
+- ✅ Shadow effects
+- ✅ Mobile-friendly
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Demo trực tiếp
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/tencent-hsi-chart.git
+
+# Mở file trong trình duyệt
+open Tp.html
+```
+
+> 💡 **Tip**: Sử dụng Live Server extension trong VS Code để có trải nghiệm tốt nhất
+
+---
+
+## 🛠️ Công nghệ sử dụng
+
+<div align="center">
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) | 5 | Cấu trúc semantic |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) | 3 | Styling hiện đại |
+| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) | ES6+ | Logic xử lý |
+| ![ECharts](https://img.shields.io/badge/ECharts-AA344D?style=flat&logo=apache&logoColor=white) | 5.4.3 | Visualization |
+
+</div>
+
+---
+
+## 📁 Cấu trúc dự án
+
+```
+tencent-hsi-chart/
+├── 📄 Tp.html          # File chính chứa toàn bộ ứng dụng
+├── 📖 README.md        # Tài liệu hướng dẫn
+└── 📷 assets/          # Hình ảnh demo (optional)
+```
+
+---
+
+## ⚡ Cài đặt
+
+### Yêu cầu hệ thống
+- Trình duyệt hiện đại (Chrome, Firefox, Safari, Edge)
+- Kết nối internet (để load ECharts CDN)
+
+### Cách chạy
+1. **Download/Clone** repository
+2. **Mở** file `Tp.html` trong trình duyệt
+3. **Enjoy!** 🎉
+
+---
+
+## 📋 Phân tích chi tiết code
+
+<details>
+<summary><b>🏗️ HTML Structure</b></summary>
+
+```html
 <div class="container">
     <div class="header">
         <!-- Header với title và mô tả -->
@@ -32,123 +114,187 @@ ECharts 5.4.3: Thư viện biểu đồ mạnh mẽ từ Apache
         <!-- Hướng dẫn sử dụng và legend -->
     </div>
 </div>
+```
 
-Lý do thiết kế như vậy:
-Container chính để căn giữa và giới hạn chiều rộng
-Phân chia rõ ràng thành 3 phần: header, chart, info
-Semantic HTML giúp SEO và accessibility tốt hơn
-2. CSS Styling
-Layout và Typography
+**💡 Lý do thiết kế:**
+- Container chính để căn giữa và giới hạn chiều rộng
+- Phân chia rõ ràng thành 3 phần: header, chart, info
+- Semantic HTML giúp SEO và accessibility tốt hơn
+
+</details>
+
+<details>
+<summary><b>🎨 CSS Styling</b></summary>
+
+### Layout và Typography
+```css
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
+```
 
-Font stack: Chọn font system phổ biến cho hiệu suất tốt
-Gradient background: Tạo hiệu ứng thị giác hấp dẫn
-Container Design
+### Container Design
+```css
 .container {
     max-width: 1200px;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
+```
 
-Max-width: Đảm bảo readability trên màn hình lớn
-Border-radius: Thiết kế modern với góc bo tròn
-Box-shadow: Tạo độ sâu và tách biệt khỏi background
-Responsive Grid
-.legend {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
+**🔍 Chi tiết:**
+- **Font stack**: Chọn font system phổ biến cho hiệu suất tốt
+- **Gradient background**: Tạo hiệu ứng thị giác hấp dẫn
+- **Max-width**: Đảm bảo readability trên màn hình lớn
+- **Border-radius**: Thiết kế modern với góc bo tròn
 
-Flexbox: Layout linh hoạt, tự động wrap trên mobile
-Gap: Khoảng cách đều giữa các phần tử
-3. JavaScript - ECharts Configuration
-Chart Initialization
+</details>
+
+<details>
+<summary><b>⚙️ JavaScript - ECharts Configuration</b></summary>
+
+### Chart Initialization
+```javascript
 const chartDom = document.getElementById('chartContainer');
 const myChart = echarts.init(chartDom);
+```
 
-Lý do: ECharts cần DOM element để render, init() tạo instance chart.
-Grid Layout System
+### Grid Layout System
+```javascript
 grid: [
     { left: '10%', right: '10%', height: '60%' },      // Main chart
     { left: '10%', right: '10%', top: '75%', height: '15%' } // Volume
 ]
+```
 
-Tại sao thiết kế như vậy:
-2 grid riêng biệt: Cho phép hiển thị price và volume độc lập
-60% + 15%: Tỷ lệ vàng, price chart chiếm không gian chính
-10% margin: Đảm bảo chart không sát viền
-Data Structure - OHLC
+### Data Structure - OHLC
+```javascript
 data: [
     [66.88, 68.00, 66.82, 68.00],  // [Open, Close, Low, High]
     [70.42, 67.75, 67.75, 70.75],
     // ...
 ]
+```
 
-Cấu trúc dữ liệu:
-Index 0 (Open): Giá mở cửa
-Index 1 (Close): Giá đóng cửa
-Index 2 (Low): Giá thấp nhất trong ngày
-Index 3 (High): Giá cao nhất trong ngày
-Color Coding Logic
-itemStyle: {
-    color: '#ec0000',        // Nến giảm (đỏ)
-    color0: '#00da3c',       // Nến tăng (xanh)
-    borderColor: '#8A0000',  // Viền nến giảm
-    borderColor0: '#008F28'  // Viền nến tăng
-}
+**📊 Cấu trúc dữ liệu:**
+- `Index 0 (Open)`: Giá mở cửa
+- `Index 1 (Close)`: Giá đóng cửa  
+- `Index 2 (Low)`: Giá thấp nhất trong ngày
+- `Index 3 (High)`: Giá cao nhất trong ngày
 
-Quy tắc màu sắc:
-Xanh (color0): Close > Open (tăng giá)
-Đỏ (color): Close < Open (giảm giá)
-Border: Màu đậm hơn để tạo contrast
-Advanced Features
-Zoom & Pan Configuration:
-dataZoom: [
-    { type: 'inside', xAxisIndex: [0, 1], start: 50, end: 100 },
-    { type: 'slider', xAxisIndex: [0, 1], top: '93%', start: 50, end: 100 }
-]
+</details>
 
-inside: Zoom bằng chuột wheel
-slider: Thanh trượt điều khiển
-xAxisIndex [0,1]: Áp dụng cho cả 2 chart (price + volume)
-start: 50: Hiển thị 50% cuối dữ liệu (focus vào recent data)
-Tooltip Enhancement:
-tooltip: {
-    trigger: 'axis',
-    axisPointer: { type: 'cross' },
-    backgroundColor: 'rgba(0,0,0,0.8)',
-    textStyle: { color: '#fff' }
-}
+---
 
-trigger: 'axis': Hiển thị data của tất cả series cùng lúc
-axisPointer: 'cross': Crosshair để đọc giá trị chính xác
-Dark theme: Dễ đọc trên background trắng
-Responsive Handler:
-window.addEventListener('resize', function() {
-    myChart.resize();
-});
+## 🎯 Hướng dẫn sử dụng
 
-Tại sao cần thiết: ECharts không tự động resize, cần manual trigger khi window thay đổi kích thước.
-🎯 Hướng dẫn sử dụng
-Điều hướng biểu đồ
-Zoom In/Out: Cuộn chuột lên/xuống
-Pan: Giữ và kéo chuột để di chuyển
-Slider: Sử dụng thanh trượt dưới cùng
-Reset: Double-click để về view ban đầu
-Đọc biểu đồ
-Nến xanh: Giá đóng cửa cao hơn giá mở cửa (tăng)
-Nến đỏ: Giá đóng cửa thấp hơn giá mở cửa (giảm)
-Thanh volume: Màu xanh nhạt, thể hiện khối lượng giao dịch
-Tooltip Information
+### 🖱️ Điều hướng biểu đồ
+
+| Action | Method | Description |
+|--------|--------|-------------|
+| **Zoom In/Out** | Cuộn chuột | Phóng to/thu nhỏ biểu đồ |
+| **Pan** | Kéo chuột | Di chuyển view |
+| **Slider** | Thanh trượt dưới | Điều hướng timeline |
+| **Reset** | Double-click | Về view ban đầu |
+
+### 📊 Đọc biểu đồ
+
+<div align="center">
+
+| 🟢 **Nến Xanh** | 🔴 **Nến Đỏ** | 📈 **Volume** |
+|:---:|:---:|:---:|
+| Giá tăng | Giá giảm | Khối lượng GD |
+| Close > Open | Close < Open | Màu xanh nhạt |
+
+</div>
+
+### 💡 Tooltip Information
 Di chuột qua biểu đồ để xem:
-Ngày giao dịch
-Giá OHLC chi tiết
-Volume tương ứng
+- 📅 Ngày giao dịch
+- 💰 Giá OHLC chi tiết  
+- 📊 Volume tương ứng
 
-Được phát triển với ❤️ bởi [Tên của bạn]
+---
 
+## 🚀 Roadmap
+
+- [ ] **Phase 1**: Thêm Moving Averages (MA5, MA20)
+- [ ] **Phase 2**: Real-time data với WebSocket
+- [ ] **Phase 3**: Technical indicators (RSI, MACD)
+- [ ] **Phase 4**: Drawing tools và alerts
+- [ ] **Phase 5**: API integration và database
+
+---
+
+## 📱 Screenshots
+
+<details>
+<summary><b>🖥️ Desktop View</b></summary>
+
+![Desktop](https://via.placeholder.com/800x500/667eea/white?text=Desktop+View)
+
+</details>
+
+<details>
+<summary><b>📱 Mobile View</b></summary>
+
+<div align="center">
+<img src="https://via.placeholder.com/400x600/667eea/white?text=Mobile+View" alt="Mobile View" width="300">
+</div>
+
+</details>
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Development Setup
+```bash
+# Clone the repo
+git clone https://github.com/yourusername/tencent-hsi-chart.git
+
+# Open with Live Server
+# Hoặc python -m http.server 8000
+```
+
+### Coding Standards
+- ✅ ES6+ JavaScript
+- ✅ Semantic HTML5
+- ✅ Mobile-first CSS
+- ✅ Comment code in Vietnamese
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+**TKayyy**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername)
+
+*Được phát triển với ❤️ và ☕*
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ Star this repo if you found it helpful!
+
+![Star](https://img.shields.io/github/stars/yourusername/tencent-hsi-chart?style=social)
+![Fork](https://img.shields.io/github/forks/yourusername/tencent-hsi-chart?style=social)
+![Issues](https://img.shields.io/github/issues/yourusername/tencent-hsi-chart)
+
+</div>
